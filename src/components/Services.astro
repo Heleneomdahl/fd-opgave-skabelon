@@ -18,7 +18,23 @@ console.log(servicesData);
 
 <style>
   @layer components {
+    ul {
+      gap: 1rem;
+    }
     li {
+      background-color: var(--hero-card-bg);
+      border-radius: 30px;
+      padding: var(--space-xl);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+
+      h2 {
+        font-size: var(--step-1);
+        color: var(--primary-color);
+        font-weight: 600;
+      }
     }
   }
 </style>

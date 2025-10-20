@@ -1,1 +1,36 @@
 /* Globale styles her */
+
+:root {
+  /*font størrelser*/
+  --step--2: clamp(0.7813rem, 0.7732rem + 0.0357vw, 0.8rem);
+  --step--1: clamp(0.9375rem, 0.9107rem + 0.119vw, 1rem);
+  --step-0: clamp(1.125rem, 1.0714rem + 0.2381vw, 1.25rem);
+  --step-1: clamp(1.35rem, 1.2589rem + 0.4048vw, 1.5625rem);
+  --step-2: clamp(1.62rem, 1.4772rem + 0.6345vw, 1.9531rem);
+  --step-3: clamp(1.944rem, 1.7308rem + 0.9474vw, 2.4414rem);
+
+  /*space størrelser*/
+  --space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
+  --space-2xs: clamp(0.5625rem, 0.5357rem + 0.119vw, 0.625rem);
+  --space-xs: clamp(0.875rem, 0.8482rem + 0.119vw, 0.9375rem);
+  --space-s: clamp(1.125rem, 1.0714rem + 0.2381vw, 1.25rem);
+  --space-m: clamp(1.6875rem, 1.6071rem + 0.3571vw, 1.875rem);
+  --space-l: clamp(2.25rem, 2.1429rem + 0.4762vw, 2.5rem);
+  --space-xl: clamp(3.375rem, 3.2143rem + 0.7143vw, 3.75rem);
+  --space-2xl: clamp(4.5rem, 4.2857rem + 0.9524vw, 5rem);
+  --space-3xl: clamp(6.75rem, 6.4286rem + 1.4286vw, 7.5rem);
+
+  /*farver*/
+  --bg-color: #181818;
+  --primary-color: white;
+  --secondary-color: black;
+  --tertiary-color: #4eaf4e;
+  --accent-color: #fbc336;
+  --hero-card-bg: rgba(38, 38, 38, 0.9);
+  --bt-border: #eaeaea;
+}
+
+body {
+  display: grid;
+  grid-template-columns: [full-start] 1fr [content-start] minmax(0, 600px) [middle] minmax(0, 600px) [content-end] 1fr [full-end];
+}
