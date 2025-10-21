@@ -1,0 +1,73 @@
+---
+import data from "../data/coreValues.json";
+---
+
+<section>
+  <article>
+    <h4>Growing with our Clients</h4>
+    <h2>{data.title}</h2>
+    <div class="flex_div">
+      <p>{data.subtitle}</p>
+      <a href={data.button.link}>{data.button.text}</a>
+    </div>
+    <ul>
+      {
+        data.values.map((item) => (
+          <li>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+            <a href={item.link.url}>{item.link.text}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </article>
+</section>
+
+<style>
+  @layer components {
+    section {
+      grid-column: full;
+      display: grid;
+      grid-template-columns: subgrid;
+      padding-top: var(--space-3xl);
+      padding-bottom: var(--space-3xl);
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
+
+      > * {
+        grid-column: content;
+      }
+      .flex_div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        a {
+          background-color: var(--primary-color);
+          color: var(--secondary-color);
+          font-weight: 600;
+          padding: var(--space-xs);
+        }
+      }
+      ul {
+        display: flex;
+        gap: 2rem;
+        color: var(--secondary-color);
+
+        li {
+          background-color: var(--primary-color);
+          border-radius: 1.25rem;
+          display: flex;
+          flex-direction: column;
+        }
+        a {
+          color: var(--secondary-color);
+          padding: 0;
+          margin-top: 10px;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+</style>

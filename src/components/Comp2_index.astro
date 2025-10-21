@@ -1,0 +1,111 @@
+---
+import DynamicIcon from "./helpers/DynamicIcon.astro";
+import data from "../data/financialProjections.json";
+---
+
+<section>
+  <article>
+    <h2>{data.title}</h2>
+    <div class="flex_div">
+      <p>{data.subtitle}</p>
+      <div class="arrow">
+        <DynamicIcon name="arrow-left" className="" />
+        <DynamicIcon name="arrow--right" />
+      </div>
+    </div>
+  </article>
+  <ul>
+    {
+      data.values.map((item) => (
+        <li>
+          <DynamicIcon name={item.icon} />
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+          <a href={item.link.url}>{item.link.text}</a>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  :root {
+    --content-width: 1200px;
+  }
+  section {
+    grid-column: full;
+    display: grid;
+    grid-template-columns: subgrid;
+    padding-top: var(--space-3xl);
+    padding-bottom: var(--space-3xl);
+    background-color: var(--bg-gray);
+
+    > * {
+      grid-column: content;
+    }
+    .flex_div {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      > div:last-child {
+        justify-self: end;
+        > button:last-child {
+          background-color: var(--accent-color);
+          color: var(--secondary-color);
+        }
+      }
+    }
+  }
+  ul {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    padding-top: 1rem;
+    scroll-snap-type: x mandatory;
+    grid-column: full;
+    padding-inline: max(1rem, 50% - var(--content-width) / 2);
+    padding-block-end: 1rem;
+
+    li {
+      flex-basis: min(400px, 90%);
+      flex-shrink: 0;
+      background: #ebebeb;
+      border-radius: 8px;
+      align-self: start;
+      scroll-snap-align: center;
+      list-style: none;
+
+      &:hover {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        cursor: pointer;
+      }
+    }
+    a {
+      color: var(--secondary-color);
+      font-weight: 600;
+    }
+  }
+  .arrow {
+    display: flex;
+    gap: 1rem;
+    font-size: var(--step-0);
+    cursor: pointer;
+
+    svg {
+      width: 50px;
+      height: 50px;
+      padding: 15px;
+      border-radius: 100%;
+    }
+
+    > * {
+      color: var(--secondary-color);
+      background-color: var(--accent-color);
+
+      &:hover {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+      }
+    }
+  }
+</style>

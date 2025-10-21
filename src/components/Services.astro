@@ -8,7 +8,7 @@ console.log(servicesData);
   {
     servicesData.services.map((service) => (
       <li>
-        <h2>{service.title}</h2>
+        <h3>{service.title}</h3>
         <p>{service.description}</p>
         <a href="#0">{service.buttonText}</a>
       </li>
@@ -24,16 +24,15 @@ console.log(servicesData);
     li {
       background-color: var(--hero-card-bg);
       border-radius: 30px;
-      padding: var(--space-xl);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
       gap: 1rem;
 
-      h2 {
-        font-size: var(--step-1);
+      h3 {
         color: var(--primary-color);
-        font-weight: 600;
+      }
+      a {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        display: inline-block;
       }
     }
   }

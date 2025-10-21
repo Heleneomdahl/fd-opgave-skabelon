@@ -1,14 +1,15 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import Hero from "@components/Hero.astro";
-import employees from "@data/employees.json";
-import DynamicImage from "@components/helpers/DynamicImage.astro";
+import Hero from "@components/Hero_index.astro";
 import Comp1Index from "@components/Comp1_index.astro";
-
-console.log(employees);
+import Comp2index from "@components/Comp2_index.astro";
+import Comp3Index from "@components/Comp3_index.astro";
+import Comp4Index from "@components/Comp4_index.astro";
 ---
 
 <Layout />
-<!-- {employees.map((employee) => <DynamicImage imagePath={employee.img} altText={employee.name} width={200} height={200} />)} -->
 <Hero />
 <Comp1Index />
+<Comp2index />
+<Comp3Index />
+<Comp4Index />

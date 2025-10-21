@@ -1,0 +1,25 @@
+---
+import HeroBgWrapper from "./helpers/HeroBgWrapper.astro";
+const { img } = Astro.props;
+---
+
+<HeroBgWrapper imagePath={img}>
+  <header>
+    <p>ABOUT</p>
+    <h1>Creative Services For Boost Your Business Growth</h1>
+  </header>
+</HeroBgWrapper>
+
+<style>
+  header {
+    padding: var(--space-l);
+    margin-block: var(--space-3xl);
+    background: oklch(from var(--primary-color) l c h / 0.85);
+    justify-self: start;
+    max-width: 700px;
+    border-radius: 1.25rem;
+  }
+  p {
+    color: red;
+  }
+</style>
