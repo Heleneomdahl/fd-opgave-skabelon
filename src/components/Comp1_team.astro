@@ -5,15 +5,22 @@ import DynamicImage from "./helpers/DynamicImage.astro";
 
 <section>
   <article>
+    <h1>Meet Our Great Team</h1>
+    <div class="flex">
+      <p>Welcome to our amazing team! We are a group of passionate individuals dedicated to excellence and innovation. Each member brings unique skills and experiences, working together to achieve our goals. Join us as we embark on exciting projects and create lasting impacts.</p>
+      <button>Join our team</button>
+    </div>
     <ul role="list">
       {
         team.map((person) => (
-          <li>
-            <DynamicImage imagePath={person.img} altText={person.name} />
+          <li class="wrapper">
+            <div class="image-wrapper">
+              <DynamicImage imagePath={person.img} altText={person.name} />
+              <h4 class="overlay">{person.title}</h4>
+            </div>
             <h2>
               <a href={`employees/${person.slug}`}>{person.name}</a>
             </h2>
-            <h4>{person.title}</h4>
             <p>{person.description}</p>
             <div class="social-links">
               {person.social_links.map((link) => (
@@ -44,16 +51,70 @@ import DynamicImage from "./helpers/DynamicImage.astro";
       ul {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+        gap: var(--space-l);
+
+        li {
+          padding: 0;
+        }
       }
       img {
         width: 100%;
+        border-radius: 1.25rem;
+      }
+      .flex {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: var(--space-l);
+      }
+    }
+    .wrapper {
+      position: relative;
+      display: inline-block;
+
+      img {
+        display: block;
+        width: 100%;
         border-radius: 8px;
       }
+    }
+    .image-wrapper .overlay {
+      position: absolute;
+      top: 65%;
+      right: 7%;
+      margin: 0;
+      padding: 4px 8px;
+      background: rgba(0, 0, 0, 0.6); /* mørk baggrund for læsbarhed */
+      color: #fff;
+      border-radius: 1.25rem;
+      font-size: 1rem;
     }
 
     .social-links a {
       margin-right: 0.5rem;
       text-decoration: none;
+    }
+    h2 {
+      margin-top: var(--space-2xs);
+    }
+    a {
+      color: var(--secondary-color);
+      padding-left: 0;
+    }
+    h1 {
+      margin-bottom: var(--space-s);
+    }
+    button {
+      background: var(--secondary-color);
+      color: #fff;
+      border-radius: 1.25rem;
+      flex: 0 0 auto;
+      padding: var(--space-2xs);
+      padding-left: var(--space-s);
+      padding-right: var(--space-s);
+      align-self: start;
+    }
+    p {
+      max-width: 700px;
     }
   }
 </style>

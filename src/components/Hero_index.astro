@@ -34,14 +34,28 @@ import CEOImage from "@assets/images/ceo.png";
         padding-block: 6rem;
         background-color: var(--bg-color);
 
+        h1 {
+          max-width: 500px;
+          margin-bottom: var(--space-s);
+        }
         > div {
           grid-column: content-start / middle;
           padding-bottom: var(--space-3xl);
         }
+
         a {
           background-color: var(--primary-color);
           color: var(--secondary-color);
           display: inline-block;
+          border-radius: 1.25rem;
+          padding: var(--space-2xs);
+          padding-left: var(--space-s);
+          padding-right: var(--space-s);
+          margin-top: var(--space-s);
+        }
+        p {
+          margin-top: var(--space-2xs);
+          max-width: 500px;
         }
       }
       img {
