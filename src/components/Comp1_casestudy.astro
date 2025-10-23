@@ -1,0 +1,117 @@
+---
+//@ts-nocheck
+import DynamicImage from "@components/helpers/DynamicImage.astro";
+import caseStudy from "@data/caseStudy.json";
+const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
+---
+
+<section>
+  <article>
+    <header>
+      <DynamicImage imagePath={image} altText={caseName} />
+      <div class="case-details">
+        <dl>
+          <div>
+            <dt>Case Name</dt>
+            <dd>{caseName}</dd>
+          </div>
+          <div>
+            <dt>Category</dt>
+            <dd class="category">{category}</dd>
+          </div>
+          <div>
+            <dt>Date</dt>
+            <dd class="date">{date}</dd>
+          </div>
+        </dl>
+        <a href="#0" class="button">{buttonLabel}</a>
+      </div>
+    </header>
+    {
+      caseStudy.sections.map((section) => (
+        <div class="text-section">
+          {caseStudy.sections[0] === section ? <h2>{section.title}</h2> : <h3>{section.title}</h3>}
+
+          {Array.isArray(section.content) ? (
+            <>
+              {section.content.map((item) => (
+                <p>{item}</p>
+              ))}
+            </>
+          ) : (
+            <p>{section.content}</p>
+          )}
+          {section.highlights && (
+            <ul>
+              {section.highlights.map((highlight) => (
+                <li>{highlight}</li>
+              ))}
+            </ul>
+          )}
+
+          {section.image && <DynamicImage imagePath={section.image} altText={section.title} width={600} height={400} class="img" />}
+        </div>
+      ))
+    }
+  </article>
+</section>
+
+<style>
+  section {
+    grid-column: full;
+    display: grid;
+    grid-template-columns: subgrid;
+    padding-top: var(--space-3xl);
+    padding-bottom: var(--space-3xl);
+    background-color: var(--bg-gray);
+
+    > * {
+      grid-column: content;
+
+      .case-details {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding-top: var(--space-m);
+        padding-bottom: var(--space-m);
+        background-color: var(--secondary-color);
+        border-radius: 1.25rem;
+        margin-left: 3rem;
+        margin-right: 3rem;
+
+        dl {
+          display: grid;
+          grid-template-columns: 1.5fr 1.5fr 1fr;
+          color: var(--primary-color);
+        }
+        .button {
+          padding-left: var(--space-2xs);
+          padding-right: var(--space-2xs);
+          border-radius: 1.25rem;
+        }
+      }
+      .text-section {
+        display: grid;
+        align-items: center;
+        max-width: 60ch;
+        margin-inline: auto;
+
+        img {
+          max-width: 50ch;
+          margin-inline: auto;
+        }
+      }
+    }
+
+    .button {
+      background-color: var(--accent-color);
+      color: var(--secondary-color);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    li {
+      padding: 0;
+    }
+  }
+</style>

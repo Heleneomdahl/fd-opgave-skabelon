@@ -1,0 +1,30 @@
+---
+import HeroBgWrapper from "./helpers/HeroBgWrapper.astro";
+const { img } = Astro.props;
+---
+
+<HeroBgWrapper imagePath={img}>
+  <header>
+    <p>CASE STUDIES</p>
+    <h1>Taxes & Efficiency</h1>
+  </header>
+</HeroBgWrapper>
+
+<style>
+  header {
+    padding: var(--space-l);
+    margin-block: var(--space-3xl);
+    background: oklch(from var(--primary-color) l c h / 0.85);
+    justify-self: start;
+    max-width: 700px;
+    border-radius: 1.25rem;
+  }
+  p {
+    color: var(--secondary-color);
+    background-color: var(--accent-color);
+    justify-self: start;
+    border-radius: 1.25rem;
+    padding-left: var(--space-2xs);
+    padding-right: var(--space-2xs);
+  }
+</style>

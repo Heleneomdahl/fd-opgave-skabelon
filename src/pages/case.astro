@@ -1,16 +1,11 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import CaseStudyArticle from "@components/CaseStudyArticle.astro";
+import CaseStudyArticle from "@components/Comp1_casestudy.astro";
 import HeroBgWrapper from "@components/helpers/HeroBgWrapper.astro";
+import Hero from "@components/Hero_CaseStudy.astro";
 ---
 
 <Layout>
-  <HeroBgWrapper imagePath="test.png">
-    <header>
-      <p>Case Studies</p>
-      <h1>Taxes & Efficiency</h1>
-    </header>
-  </HeroBgWrapper>
-
+  <Hero img="casestudy_hero_pic.png" />
   <CaseStudyArticle />
 </Layout>
