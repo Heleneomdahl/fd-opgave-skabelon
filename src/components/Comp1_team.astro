@@ -1,6 +1,6 @@
 ---
 import team from "../data/employees.json";
-console.log(team);
+import DynamicImage from "./helpers/DynamicImage.astro";
 ---
 
 <section>
@@ -9,7 +9,7 @@ console.log(team);
       {
         team.map((person) => (
           <li>
-            <img src={person.img} alt={person.name} />
+            <DynamicImage imagePath={person.img} altText={person.name} />
             <h2>
               <a href={`employees/${person.slug}`}>{person.name}</a>
             </h2>
